@@ -1,0 +1,51 @@
+<?php
+session_start();
+include 'config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $pdo = connexionDB();
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $error = "Nom d'utilisateur ou mot de passe incorrect";
+
+    // Vérification pour l'Administrateur
+    $stmt2 = $pdo->prepare('SELECT * FROM ADMINISTRATEUR WHERE nom = :username OR prenom = :username');
+    $stmt2->bindParam(':username', $username);
+    $stmt2->execute();
+    $admin = $stmt2->fetch();
+
+    if ($admin && password_verify($password, $admin['password'])) {
+        $_SESSION['admin'] = $admin['ID_admin']; // Correction de la clé
+        header('Location: epreuves.php');
+        exit;
+    }
+
+    // Vérification pour l'Elève
+    $stmt = $pdo->prepare('SELECT * FROM ELEVE WHERE adresse_mail = :username');
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $etud = $stmt->fetch();
+
+    if ($etud && password_verify($password, $etud['password'])) {
+        $_SESSION['etudiant'] = $etud['ID_eleve'];
+        header('Location: student.php');
+        exit;
+    }
+
+    // Vérification pour l'Enseignant
+    $stmt1 = $pdo->prepare('SELECT * FROM ENSEIGNANT WHERE adresse_mail = :username');
+    $stmt1->bindParam(':username', $username);
+    $stmt1->execute();
+    $prof = $stmt1->fetch();
+
+    if ($prof && password_verify($password, $prof['password'])) {
+        $_SESSION['prof'] = $prof['ID_prof']; // Correction de la clé
+        header('Location: professor.php');
+        exit;
+    }
+
+    // Si aucune correspondance n'a été trouvée
+    $error = "Nom d'utilisateur ou mot de passe incorrect";
+    echo $error;
+}
+?>

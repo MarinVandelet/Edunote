@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>EDN - Contact</title>
-    <link rel="icon" href="icon.png" type="image/x-icon">
+    <title>EDN - Accueil</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
     <script src="script.js"></script>
 </head>
 
 <body>
-<nav>
-        <img src="EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
+    <nav>
+        <img src="img/EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
         <ul class="nav-links">
             <li><a href="accueil.php">Accueil</a></li>
             <li><a href="about.php">A propos</a></li>
@@ -31,7 +31,7 @@
     <h1>Placer le contenu de la page ici</h1>
 
     <footer>
-        <img src="logouniv.png" alt="EDN_Logo" class="logo-univ">
+        <img src="img/logouniv.png" alt="EDN_Logo" class="logo-univ">
         <p>5 boulevard Descartes <br>
             Champs-sur-Marne <br>
             77454 Marne-la-Vallée cedex 2 <br>

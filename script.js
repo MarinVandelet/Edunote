@@ -9,3 +9,5 @@ function toggleTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     themeToggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀' : '🌙';
 }
+
+
