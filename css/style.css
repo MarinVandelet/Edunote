@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #0F1383;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+body.dark-mode nav {
+    background-color: #1e1e1e;
+}
+
+nav .logo {
+    width: 6%;
+    margin-right: 20px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+nav .nav-links li {
+    margin-right: 20px;
+}
+
+nav .nav-links li a {
+    padding: 0.50em 1.7em;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+nav .connexion {
+    padding: 0.50em 1.7em;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+    background-color: #0F1383;
+}
+
+nav .connexion:hover {
+    background-color: #080c52;
+}
+
+nav a:hover {
+    background-color: #080c52;
+}
+body.dark-mode a:hover {
+    background-color: #152c9c;
+}
+body.dark-mode nav .nav-links li a,
+body.dark-mode nav .connexion {
+    color: #ffffff;
+}
+
+body.dark-mode .connexion {
+    background-color: #1e1e1e;
+}
+body.dark-mode .connexion:hover {
+    background-color: #152c9c;
+    border-radius: 15px;
+}
+/* Theme Toggle Button */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    height: 30px;
+  }
+
+  .toggle-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #666;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .toggle-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 1.3s ease;
+  }
+
+  .theme-toggle.dark-mode .toggle-track {
+    background-color: #333;
+  }
+  
+  .theme-toggle.dark-mode .icon-sun {
+    display: none;
+  }
+  
+  .theme-toggle.dark-mode .icon-moon {
+    display: block;
+  }
+  
+  .theme-toggle.dark-mode .toggle-thumb {
+    transform: translateX(20px);
+  }
+
+  .icon-sun, .icon-moon {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+  }
+
+.theme-toggle:hover {
+    background-color: #084c8d;
+}
+
+/* Footer */
+footer {
+    background-color: #0F1383;
+    text-align: center;
+    color: white;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+body.dark-mode h2 {
+    color: #ffffff;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+body.dark-mode label {
+    color: #cccccc;
+}
+
+input, textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #0F1383;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #84b1e6;
+}
+
+body.dark-mode input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+}
+
+.icon:hover {
+    filter: grayscale(0%);
+    transition: 0.25s;
+}
+
+.logo-univ {
+    height: 250px;
+}
+
+body.dark-mode .logo-univ {
+    filter: brightness(0.8);
+}

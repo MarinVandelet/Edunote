@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>EDN - Connexion</title>
+    <title>EDN - Contact</title>
     <link rel="icon" href="icon.png" type="image/x-icon">
+    <script src="script.js"></script>
 </head>
-<body>
 
+<body>
 <nav>
         <img src="EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
         <ul class="nav-links">
@@ -25,18 +27,10 @@
   <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 </button>
     </nav>
-    <h2>Connexion</h2>
-    <div class="container">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label for="username">Identifiant:</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Mot de passe:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" class="submit-boutton" value="Se connecter">
-        <?php if(isset($erreur)) { echo "<p style='color:red;'>$erreur</p>"; } ?>
-    </form>
-</div>
-<footer>
+
+    <h1>Placer le contenu de la page ici</h1>
+
+    <footer>
         <img src="logouniv.png" alt="EDN_Logo" class="logo-univ">
         <p>5 boulevard Descartes <br>
             Champs-sur-Marne <br>
@@ -60,22 +54,5 @@
         </ul>
     </footer>
 </body>
+
 </html>
-
-
-<?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $identifiant = "Test";
-    $mot_de_passe = "Test123";
-
-    if ($_POST['username'] == $identifiant && $_POST['password'] == $mot_de_passe) {
-        $_SESSION['username'] = $_POST['username'];
-        header("location: accueil.php");
-        exit;    }
-    else {
-        $erreur = "Identifiant ou mot de passe incorrect.";
-        echo $erreur;
-    }
-}
-?>
