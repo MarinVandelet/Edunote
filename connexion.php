@@ -1,51 +1,5 @@
 <?php
 session_start();
-
-include "header.php";
-?>
-    
-    <h2>Connexion</h2>
-    <div class="container-connexion">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label for="username">Identifiant:</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Mot de passe:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" class="submit-boutton" value="Se connecter">
-        <select name="user_type" class="usertype" required>
-            <option value="admin">Administrateur</option>
-            <option value="eleve">Élève</option>
-            <option value="prof">Enseignant</option>
-        </select>    
-        <?php if(isset($erreur)) { echo "<p style='color:red;'>$erreur</p>"; } ?>
-    </form>
-</div>
-    <footer>
-        <img src="img/logouniv.png" alt="EDN_Logo" class="logo-univ">
-        <p>5 boulevard Descartes <br>
-            Champs-sur-Marne <br>
-            77454 Marne-la-Vallée cedex 2 <br>
-            Téléphone : +33 (0)1 60 95 75 00
-        </p>
-
-        <ul class="social-icons">
-            <li><a href="https://www.facebook.com/UniversiteGustaveEiffel/" class="icon"><img
-                        src="img/facebookicon.png"
-                        alt="icone facebook" class="icon"></a></li>
-            <li><a href="https://twitter.com/UGustaveEiffel" class="icon"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png"
-                        alt="icone twitter" class="icon"></a></li>
-            <li><a href="https://fr.linkedin.com/school/université-gustave-eiffel/" class="icon"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/72px-LinkedIn_icon.svg.png"
-                        alt="icone linkedin" class="icon"></a></li>
-            <li><a href="https://www.instagram.com/universitegustaveeiffel/" class="icon"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png"
-                        alt="icone instagram" class="icon"></a></li>
-        </ul>
-    </footer>
-</body>
-</html>
-<?php
 include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -97,8 +51,128 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Si aucune correspondance n'a été trouvée
-    echo $error;
+    $erreur = $error;
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <?php include "header.php"; ?>
+
+    <h2>Connexion</h2>
+    <div class="container-connexion">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="login-form">
+            <label for="username">Identifiant:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Mot de passe:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <input type="hidden" id="user_type" name="user_type" value="">
+
+            <div class="user-type-buttons">
+                <input type="radio" id="user_eleve" name="user_type_radio" value="eleve" style="display:none;">
+                <label for="user_eleve" class="user-button" data-user-type="eleve">
+                    <img src="img/student.png" alt="Élève Image">
+                    <span>Élève</span>
+                </label>
+                <input type="radio" id="user_prof" name="user_type_radio" value="prof" style="display:none;">
+                <label for="user_prof" class="user-button" data-user-type="prof">
+                    <img src="img/teacher.png" alt="Enseignant Image">
+                    <span>Enseignant</span>
+                </label>
+                <input type="radio" id="user_admin" name="user_type_radio" value="admin" style="display:none;">
+                <label for="user_admin" class="user-button" data-user-type="admin">
+                    <img src="img/admin.png" alt="Admin Image">
+                    <span>Administrateur</span>
+                </label>
+            </div>
+
+            <input type="submit" class="submit-boutton" value="Se connecter">
+            <?php if (isset($erreur)) {
+                echo "<p style='color:red;'>$erreur</p>";
+            } ?>
+        </form>
+    </div>
+
+    <script>
+        document.querySelectorAll('.user-button').forEach(label => {
+            label.addEventListener('click', function () {
+                const userType = this.getAttribute('data-user-type');
+                document.getElementById('user_type').value = userType;
+                document.querySelectorAll('.user-button').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            if (!document.getElementById('user_type').value) {
+                event.preventDefault();
+                alert('Veuillez sélectionner un type d\'utilisateur.');
+            }
+        });
+    </script>
+
+    <style>
+        .user-type-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .user-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            padding-left: 57px;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .user-button img {
+            display: block;
+            margin: 0 auto;
+            width: 50px;
+            height: auto;
+        }
+
+        .user-button.selected {
+            transform: scale(1.3);
+            opacity: 1 !important;
+        }
+    </style>
+
+    <footer>
+        <img src="img/logouniv.png" alt="EDN_Logo" class="logo-univ">
+        <p>5 boulevard Descartes <br>
+            Champs-sur-Marne <br>
+            77454 Marne-la-Vallée cedex 2 <br>
+            Téléphone : +33 (0)1 60 95 75 00
+        </p>
+
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/UniversiteGustaveEiffel/" class="icon"><img src="img/facebookicon.png"
+                        alt="icone facebook" class="icon"></a></li>
+            <li><a href="https://twitter.com/UGustaveEiffel" class="icon"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png"
+                        alt="icone twitter" class="icon"></a></li>
+            <li><a href="https://fr.linkedin.com/school/université-gustave-eiffel/" class="icon"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/72px-LinkedIn_icon.svg.png"
+                        alt="icone linkedin" class="icon"></a></li>
+            <li><a href="https://www.instagram.com/universitegustaveeiffel/" class="icon"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png"
+                        alt="icone instagram" class="icon"></a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
