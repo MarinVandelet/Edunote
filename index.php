@@ -2,8 +2,9 @@
 session_start();
 
 include "header.php";
-?>
 
+?>
+<title>EDN - Accueil</title>
     <div class="container">
         <h1>Bienvenue sur la Plateforme Numérique de Gestion des Notes de l'Université Gustave Eiffel</h1>
         <section id="students">

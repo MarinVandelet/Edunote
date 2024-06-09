@@ -3,6 +3,7 @@ session_start();
 
 include "header.php";
 ?>
+<title>EDN - Contact</title>
 
     <h1>Placer le contenu de la page ici</h1>
 

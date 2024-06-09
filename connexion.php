@@ -54,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $erreur = $error;
 }
 ?>
-
+<title>EDN - Connexion</title>
+<link rel="icon" href="img/icon.png" type="image/x-icon">
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -119,37 +120,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
     </script>
-
-    <style>
-        .user-type-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-
-        .user-button {
-            border: none;
-            background: none;
-            cursor: pointer;
-            text-align: center;
-            display: inline-block;
-            padding-left: 57px;
-            opacity: 0.7;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-
-        .user-button img {
-            display: block;
-            margin: 0 auto;
-            width: 50px;
-            height: auto;
-        }
-
-        .user-button.selected {
-            transform: scale(1.3);
-            opacity: 1 !important;
-        }
-    </style>
 
     <footer>
         <img src="img/logouniv.png" alt="EDN_Logo" class="logo-univ">

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -64,9 +65,11 @@ nav .connexion:hover {
 nav a:hover {
     background-color: #080c52;
 }
+
 body.dark-mode a:hover {
     background-color: #152c9c;
 }
+
 body.dark-mode nav .nav-links li a,
 body.dark-mode nav .connexion {
     color: #ffffff;
@@ -75,6 +78,7 @@ body.dark-mode nav .connexion {
 body.dark-mode .connexion {
     background-color: #1e1e1e;
 }
+
 body.dark-mode .connexion:hover {
     background-color: #152c9c;
     border-radius: 15px;
@@ -94,46 +98,47 @@ body.dark-mode .connexion:hover {
     position: relative;
     width: 50px;
     height: 30px;
-  }
+}
 
-  .toggle-track {
+.toggle-track {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #666;
     border-radius: 20px;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .toggle-thumb {
+.toggle-thumb {
     width: 20px;
     height: 20px;
     background-color: #fff;
     border-radius: 50%;
     transition: transform 1.3s ease;
-  }
+}
 
-  .theme-toggle.dark-mode .toggle-track {
+.theme-toggle.dark-mode .toggle-track {
     background-color: #333;
-  }
-  
-  .theme-toggle.dark-mode .icon-sun {
-    display: none;
-  }
-  
-  .theme-toggle.dark-mode .icon-moon {
-    display: block;
-  }
-  
-  .theme-toggle.dark-mode .toggle-thumb {
-    transform: translateX(20px);
-  }
+}
 
-  .icon-sun, .icon-moon {
+.theme-toggle.dark-mode .icon-sun {
+    display: none;
+}
+
+.theme-toggle.dark-mode .icon-moon {
+    display: block;
+}
+
+.theme-toggle.dark-mode .toggle-thumb {
+    transform: translateX(20px);
+}
+
+.icon-sun,
+.icon-moon {
     width: 20px;
     height: 20px;
     fill: #000;
-  }
+}
 
 .theme-toggle:hover {
     background-color: #084c8d;
@@ -170,17 +175,17 @@ body.dark-mode footer {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.container-connexion {
+.container-connexion, .usertype {
     width: 50%;
     margin: 50px auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-size: 18px;
 }
@@ -217,7 +222,8 @@ body.dark-mode label {
     color: #cccccc;
 }
 
-input, textarea {
+input,
+textarea {
     width: calc(100% - 10px);
     padding: 10px;
     margin-bottom: 15px;
@@ -268,9 +274,10 @@ body.dark-mode .logo-univ {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 .popup-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -278,15 +285,171 @@ body.dark-mode .logo-univ {
     border: 1px solid #888;
     width: 80%;
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
+
+/*BOUTONS DE LA PAGE DE CONNEXION*/
+.user-type-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.user-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    padding-left: 57px;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.user-button img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: auto;
+}
+
+.user-button:hover {
+    transform: scale(1.3) !important;
+}
+
+.user-button.selected {
+    transform: scale(1.3);
+    opacity: 1 !important;
+}
+
+.container-gestion {
+    text-align: center;
+}
+
+.button-creer,
+.button-lister {
+    margin: 20px auto;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 35px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.button-creer {
+    background-color: #4CAF50;
+}
+
+.button-lister {
+    background-color: #008CBA;
+}
+
+.menu_banner {
+    display: block;
+    margin: 0 auto;
+}
+
+.submit-boutton {
+        width: 100%; /* Largeur du select moins la largeur des padding */
+        padding: 10px; /* Ajout de padding pour maintenir la taille de l'élément */    
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center; /* Alignement vertical au centre */
+}
+
+label, input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0; /* Ajustement de la marge pour aligner les éléments */
+    box-sizing: border-box;
+    height: 100%; /* Ajustement de la hauteur pour correspondre */
+}
+
+
+
+.usertype {
+    width: 100%; /* Largeur du select pour remplir la cellule */
+    padding: 7.5px; /* Ajout de padding pour maintenir la taille de l'élément */
+}
+
+/* Styles pour les boutons de filtre */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-buttons button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0F1383;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover {
+    background-color: #080c52;
+}
+
+/* Styles pour la barre de recherche */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    background-color: #0F1383;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #080c52;
+}
+
+/* Styles pour le tableau des utilisateurs */
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#userTable th, #userTable td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#userTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+/* Votre style footer ici */

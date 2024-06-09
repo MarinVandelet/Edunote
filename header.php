@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>EDN - Accueil</title>
     <link rel="icon" href="img/icon.png" type="image/x-icon">
     <script src="script.js"></script>
 </head>
@@ -23,7 +22,7 @@
                     $stat = $_SESSION['etat'];
                     switch ($stat){
                         case 'admin' :
-                            echo "<li><a href=\"#\">Gestion Ressources</a></li>";
+                            echo "<li><a href=\"gestion_ressources.php\">Gestion Ressources</a></li>";
                             echo "<li><a href=\"gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
                             break;
                         case 'eleve':
