@@ -1,7 +1,7 @@
 <?php
 function connexionDB() {
-    $host = 'localhost';
-    $dbname = 'edunote';
+    $host = 'Localhost';
+    $dbname = 'Edunote';
     $username = 'root';
     $password = '';
     

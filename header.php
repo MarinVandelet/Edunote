@@ -15,7 +15,7 @@
         <nav>
             <img src="img/EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
             <ul class="nav-links">
-                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="about.php">A propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <?php
@@ -24,7 +24,7 @@
                     switch ($stat){
                         case 'admin' :
                             echo "<li><a href=\"#\">Gestion Ressources</a></li>";
-                            echo "<li><a href=\"Gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
+                            echo "<li><a href=\"gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
                             break;
                         case 'eleve':
                             echo "<li><a href=\"#\">Notes</a></li>";

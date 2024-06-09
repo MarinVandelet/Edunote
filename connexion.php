@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($admin && password_verify($password, $admin['password'])) {
             $_SESSION['admin'] = $admin['ID_admin'];
             $_SESSION['etat'] = $userType;
-            header('Location: accueil.php');
+            header('Location: index.php');
             exit;
         }
     } elseif ($userType == 'eleve') {
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($etud && password_verify($password, $etud['password'])) {
             $_SESSION['etudiant'] = $etud['ID_eleve'];
             $_SESSION['etat'] = $userType;
-            header('Location: accueil.php');
+            header('Location: index.php');
             exit;
         }
     } elseif ($userType == 'prof') {
@@ -90,7 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($prof && password_verify($password, $prof['password'])) {
             $_SESSION['prof'] = $prof['ID_prof'];
-            header('Location: accueil.php');
+            $_SESSION['etat'] = $userType;
+            header('Location: index.php');
             exit;
         }
     }
