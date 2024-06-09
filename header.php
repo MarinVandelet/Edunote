@@ -23,8 +23,8 @@
                     $stat = $_SESSION['etat'];
                     switch ($stat){
                         case 'admin' :
-                            echo "<li><a href=\"#\">Gestion Utilisateurs</a></li>";
                             echo "<li><a href=\"#\">Gestion Ressources</a></li>";
+                            echo "<li><a href=\"Gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
                             break;
                         case 'eleve':
                             echo "<li><a href=\"#\">Notes</a></li>";
