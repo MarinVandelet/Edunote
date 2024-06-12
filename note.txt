@@ -1,7 +1,3 @@
--- LIEN FIGMA https://www.figma.com/design/22SZXsg8syOBf8QS6dLdI0/Untitled?node-id=0-1&t=okTT0FgvvCW3EVyC-1
--- wattinvandelet-edunote_db
-
-
 CREATE DATABASE IF NOT EXISTS Edunote;
 USE Edunote;
 
@@ -22,13 +18,14 @@ CREATE TABLE ADMINISTRATEUR(
 
 -- Création de la table UE
 CREATE TABLE UE (
-    ID_UE VARCHAR(255) PRIMARY KEY
+    ID_UE VARCHAR(255) PRIMARY KEY,
+    Competence VARCHAR(255)
 );
 
 -- Création de la table ENSEIGNEMENT
 CREATE TABLE ENSEIGNEMENT (
     ID_Ens VARCHAR(255) PRIMARY KEY,
-    Libelle_Ens VARCHAR(255),
+    nom_Ens VARCHAR(255),
     Semestre INT,
     Coefficient INT,
     ID_UE VARCHAR(255),
@@ -55,22 +52,29 @@ CREATE TABLE ELEVE (
     FOREIGN KEY (ID_classe) REFERENCES CLASSE(ID_classe)
 );
 
+-- Création de la table TYPE_EPREUVE
+CREATE TABLE TYPE_EPREUVE(
+    id_type_epreuve INT PRIMARY KEY,
+    type VARCHAR(255)
+);
+
 -- Création de la table EPREUVE
 CREATE TABLE EPREUVE (
-    ID_epreuve INT PRIMARY KEY AUTO_INCREMENT,
-    Date_epreuve DATE,
-    Nom_epreuve VARCHAR(255),
-    type_epreuve VARCHAR(255),
-    note INT,
-    coef_note INT,
-    ID_enseignement VARCHAR(255),
+    ID_epreuve INT PRIMARY KEY AUTO_INCREMENT, 
+    Date_epreuve DATE, 
+    Nom_epreuve VARCHAR(255), 
+    id_type_epreuve INT, 
+    note INT, 
+    coef_note INT, 
+    ID_enseignement VARCHAR(255), 
     ID_eleve VARCHAR(255),
     ID_classe INT,
-    ID_prof VARCHAR(255),
+    ID_prof VARCHAR(255), 
     FOREIGN KEY (ID_enseignement) REFERENCES ENSEIGNEMENT(ID_Ens),
-    FOREIGN KEY (ID_eleve) REFERENCES ELEVE(ID_eleve),
+    FOREIGN KEY (ID_eleve) REFERENCES ELEVE(ID_eleve), 
     FOREIGN KEY (ID_classe) REFERENCES CLASSE(ID_classe),
-    FOREIGN KEY (ID_prof) REFERENCES ENSEIGNANT(ID_prof)
+    FOREIGN KEY (ID_prof) REFERENCES ENSEIGNANT(ID_prof),
+    FOREIGN KEY (id_type_epreuve) REFERENCES TYPE_EPREUVE(id_type_epreuve)
 );
 
 -- Création de la table ENSEIGNE
@@ -96,7 +100,7 @@ INSERT INTO CLASSE (ID_classe, nom)
 VALUES (2, 'TD1');
 
 -- Insertion d'un administrateur
-INSERT INTO ADMINISTRATEUR (id_admin, nom, prenom, adresse_mail, password)
+INSERT INTO ADMINISTRATEUR (ID_admin, nom, prenom, adresse_mail, password)
 VALUES ('12345', 'Martin', 'Paul', 'administrateur@exemple.com','$2b$12$xEpU9B4dSarUrQXjZCWwSOgdm8PBzpTZjT2ihDeSTfWVg7nPTiKaq');
 
 -- Insertion d'un élève
@@ -105,4 +109,9 @@ VALUES ('123456', '$2b$12$xEpU9B4dSarUrQXjZCWwSOgdm8PBzpTZjT2ihDeSTfWVg7nPTiKaq'
 
 -- Insertion d'un prof
 INSERT INTO ENSEIGNANT(ID_prof, nom, prenom, password, adresse_mail) 
-VALUES ('25','Toryan','Dissier','$2b$12$xEpU9B4dSarUrQXjZCWwSOgdm8PBzpTZjT2ihDeSTfWVg7nPTiKaq','toryan@exemple.com')
+VALUES ('25','Toryan','Dissier','$2b$12$xEpU9B4dSarUrQXjZCWwSOgdm8PBzpTZjT2ihDeSTfWVg7nPTiKaq','toryan@exemple.com');
+
+-- Insertion des types d'épreuve
+INSERT INTO `type_epreuve` (`id_type_epreuve`, `type`) VALUES ('1', 'SAE');
+INSERT INTO `type_epreuve` (`id_type_epreuve`, `type`) VALUES ('2', 'Ressource');
+INSERT INTO `type_epreuve` (`id_type_epreuve`, `type`) VALUES ('3', 'Autre');

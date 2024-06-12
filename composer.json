@@ -1,0 +1,13 @@
+{
+    "name": "chisa/edunote",
+    "description": "Page web de gestion scolaire",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chisa\\Edunote\\": "src/"
+        }
+    }
+}

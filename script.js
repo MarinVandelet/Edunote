@@ -17,12 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
         localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
-        themeToggleBtn.textContent = isDarkMode ? '☀' : '🌙';
-
+        
+        // Modifier l'icône en fonction du mode sombre ou clair
+        const sunIcon = `☀`;
+        const moonIcon = 'ㅤㅤ<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.innerHTML = isDarkMode ? sunIcon : moonIcon;
+    
         // Log for debugging
         console.log('Theme changed to:', isDarkMode ? 'dark-mode' : 'light-mode');
         console.log('Local Storage theme:', localStorage.getItem('theme'));
     }
+    
 
     const boutonConnexion = document.querySelector('.submit-boutton');
     if (boutonConnexion) {
