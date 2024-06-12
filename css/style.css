@@ -64,10 +64,12 @@ nav .connexion:hover {
 
 nav a:hover {
     background-color: #080c52;
+    border-radius: 15px;
 }
 
 body.dark-mode a:hover {
     background-color: #152c9c;
+    border-radius: 15px;
 }
 
 body.dark-mode nav .nav-links li a,
@@ -100,23 +102,9 @@ body.dark-mode .connexion:hover {
     height: 30px;
 }
 
-.toggle-track {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #666;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
+.icon-sun{
+    display: none;
 }
-
-.toggle-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: transform 1.3s ease;
-}
-
 .theme-toggle.dark-mode .toggle-track {
     background-color: #333;
 }
@@ -137,7 +125,7 @@ body.dark-mode .connexion:hover {
 .icon-moon {
     width: 20px;
     height: 20px;
-    fill: #000;
+    /* fill: #000; */
 }
 
 .theme-toggle:hover {
@@ -181,7 +169,7 @@ body.dark-mode footer {
 
 .container-connexion, .usertype {
     width: 50%;
-    margin: 50px auto;
+    margin: 6px auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
@@ -366,24 +354,11 @@ body.dark-mode .logo-univ {
 }
 
 .submit-boutton {
-        width: 100%; /* Largeur du select moins la largeur des padding */
-        padding: 10px; /* Ajout de padding pour maintenir la taille de l'élément */    
+        width: 100%;
+        padding: 10px;   
 }
 
-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    align-items: center; /* Alignement vertical au centre */
-}
 
-label, input, select {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0; /* Ajustement de la marge pour aligner les éléments */
-    box-sizing: border-box;
-    height: 100%; /* Ajustement de la hauteur pour correspondre */
-}
 
 
 
@@ -452,4 +427,65 @@ label, input, select {
     text-align: left;
 }
 
-/* Votre style footer ici */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #0F1383;
+}
+
+th,
+td {
+    border: 1px solid #0F1383;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #0F1383;
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    margin-right: 10px;
+}
+
+.form-container select {
+    margin-right: 10px;
+}
+
+.form-container .search-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container input[type="text"] {
+    width: 200px;
+    margin-top: 10px;
+    height: 1px;
+}
+
+.options-btn {
+    display: flex;
+    gap: 10px;
+}
+
+.options-btn button {
+    padding: 5px 10px;
+    font-size: 148x;
+    cursor: pointer;
+    background-color: #0F1383 ;
+    color:white
+}
+body.dark-mode .options-btn button {
+background-color: #152c9c;
+}
+
+.container-contact{
+    margin:auto
+}
