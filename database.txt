@@ -68,20 +68,18 @@ CREATE TABLE ELEVE (
 
 -- Création de la table EPREUVE
 CREATE TABLE EPREUVE (
-    ID_epreuve INT PRIMARY KEY AUTO_INCREMENT, 
+    ID_epreuve INT, 
     Date DATE, 
     Nom_epreuve VARCHAR(255), 
     note INT, 
-    coef_note INT,
+    Coefficient INT,
     Appreciation VARCHAR(255),
     ID_Ens VARCHAR(255), 
     ID_eleve VARCHAR(255),
     ID_classe INT,
-    ID_prof VARCHAR(255),
     FOREIGN KEY (ID_Ens) REFERENCES ENSEIGNEMENT(ID_Ens),
     FOREIGN KEY (ID_eleve) REFERENCES ELEVE(ID_eleve), 
-    FOREIGN KEY (ID_classe) REFERENCES CLASSE(ID_classe),
-    FOREIGN KEY (ID_prof) REFERENCES ENSEIGNANT(ID_prof)
+    FOREIGN KEY (ID_classe) REFERENCES CLASSE(ID_classe)
 );
 
 -- Création de la table ENSEIGNE

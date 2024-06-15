@@ -1,40 +1,35 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/icon.png" type="image/x-icon">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/icon.png" type="image/x-icon">
+    <script src="../script.js"></script>
 </head>
 
 <body>
     <header>
         <nav>
-            <img src="img/EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
+            <img src="../img/EDN_Logo_blanc.png" alt="EDN_Logo" class="logo">
             <ul class="nav-links">
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="pages/about.php">A propos</a></li>
-                <li><a href="pages/contact.php">Contact</a></li>
+                <li><a href="../index.php">Accueil</a></li>
+                <li><a href="about.php">A propos</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <?php
                 if (isset($_SESSION['etat'])){
                     $stat = $_SESSION['etat'];
                     switch ($stat){
                         case 'admin' :
-                            echo "<li><a href=\"pages/gestion_enseignement.php\">Gestion Ressources</a></li>";
-                            echo "<li><a href=\"pages/gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
+                            echo "<li><a href=\"gestion_enseignement.php\">Gestion Ressources</a></li>";
+                            echo "<li><a href=\"gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
                             break;
                         case 'eleve':
                             echo "<li><a href=\"#\">Notes</a></li>";
                             break;
                         case 'prof':
-                           echo "<li><a href=\"pages/matiere.php\">Gestion Notes</a></li>";
+                           echo "<li><a href=\"matiere.php\">Mes matières</a></li>";
                             break;
                         default :
                             break;
@@ -44,9 +39,9 @@ session_start();
             </ul>
             <?php
                 if (!isset($_SESSION['etat'])){
-                    echo "<a href=\"pages/connexion.php\" class=\"connexion\">Connexion</a>";
+                    echo "<a href=\"connexion.php\" class=\"connexion\">Connexion</a>";
                 } else {
-                    echo "<a href=\"functions/deconnexion.php\" class=\"connexion\">Deconnexion</a>";
+                    echo "<a href=\"../functions/deconnexion.php\" class=\"connexion\">Deconnexion</a>";
                 }
             ?>
             <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
@@ -58,33 +53,3 @@ session_start();
             </button>
         </nav>
     </header>
-<title>EDN - Accueil</title>
-        
-        <img src="img/imgaccueilpre.png" alt="imgaccueil" class="imghead">
-        
-        <div id="contenu_accueil">
-            <section class="element_accueil">
-                <img src="img/etudiantaccueil.png" alt="img_etudiantaccueil" class="img_accueil">
-                <div>
-                    <h3>Etudiants</h3>
-                    <p>Consultez toutes vos notes facilement et au même endroit</p>
-                </div>
-            </section>
-            <section class="element_accueil">
-                <img src="img/enseignantaccueil.png" alt="img_etudiantaccueil" class="img_accueil">
-                <div>
-                    <h3>Professeurs</h3>
-                    <p>Gérez les notes aisément grâce à un outil intuitif</p>
-                </div>
-            </section>
-        </div>
-
-    <?php
-
-    include "includes/footer.php";
-
-    ?>
-
-</body>
-
-</html>
