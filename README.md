@@ -43,5 +43,5 @@ Edunote a été développé dans le cadre d'une SAE (Situation d'Apprentissage e
      - [↪ INFINITYFREE](http://edunote.infinityfreeapp.com/)
    - [🧰 BASE DE DONNEES](./database.txt)
    - [🔗 FIGMA](https://www.figma.com/design/22SZXsg8syOBf8QS6dLdI0/Untitled?node-id=10-88)
-   - [📊 TRELLO](link)
+   - [📊 TRELLO](https://trello.com/invite/b/JHPzmYz6/ATTId0c9d16aabc315eeba35c7560c13276e746D5492/kanban-template)
    - [⚡ DIAPO SOUTENANCE](https://www.canva.com/design/DAGHqwgFdqU/rkHCy7L6wgbbSJHJyq2AdQ/view?utm_content=DAGHqwgFdqU&utm_campaign=designshare&utm_medium=link&utm_source=editor)
