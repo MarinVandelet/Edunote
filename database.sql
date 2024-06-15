@@ -185,7 +185,12 @@ INSERT INTO UE (ID_UE, Competence) VALUES
 -- Insertion des enseignements
 INSERT INTO ENSEIGNEMENT (ID_Ens, nom_Ens, Semestre, Coefficient, ID_UE, type) VALUES
 ('666372c2e0618', 'Culture Artistique', 2, 2, '1', 'Autre'),
-('666376efe324c', 'Numérique', 1, 1, '1', 'Ressource');
+('666376efe324c', 'Culture Numérique', 1, 1, '1', 'Ressource');
 
 -- Insertion de la liaison entre l'enseignant et l'enseignement
 INSERT INTO ENSEIGNE (ID_prof, ID_Ens) VALUES ('25', '666372c2e0618');
+
+INSERT INTO `epreuve` (`ID_epreuve`, `Date`, `Nom_epreuve`, `note`, `Coefficient`, `Appreciation`, `ID_Ens`, `ID_eleve`, `ID_classe`) VALUES
+(1, '2024-06-14', 'Devoir sur table 1', 11, 3, 'Très bon travail !', '666372c2e0618', '123457', 4),
+(1, '2024-06-14', 'Devoir sur table 1', 12, 3, 'Plutot satisfaisant !', '666372c2e0618', '123458', 4),
+(1, '2024-06-14', 'Devoir sur table 1', 11, 3, 'Peut mieux faire !', '666372c2e0618', '123459', 4);
