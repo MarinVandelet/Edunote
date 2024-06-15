@@ -497,3 +497,41 @@ body.dark-mode .options-btn button {
     padding-inline: 550px;
 }
 
+/* Style Accueil */
+
+.imghead{
+    width: 100%;
+}
+
+.titlehead{
+    text-align: center;
+}
+
+.img_accueil{
+    max-width: 15%;
+}
+
+#contenu_accueil{
+    margin: 6em auto;
+}
+
+.element_accueil{
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 160%;
+    margin: 2em;
+    transition: 0.25s ease-out;
+}
+
+.element_accueil:hover{
+    transform: scale(101%);
+}
+
+.element_accueil div{
+    background-color: #0F1383;
+    padding: 0.5em 2em;
+    width: 60%;
+}
+

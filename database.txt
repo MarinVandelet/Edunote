@@ -120,7 +120,7 @@ INSERT INTO TYPE_ENSEIGNEMENT (type) VALUES ('Autre');
 
 -- Insertion des UE
 INSERT INTO UE (ID_UE, Competence) VALUES
-('1', 'Comprendre');
+('1', 'Comprendre'),
 ('2', 'Intérragir');
 
 -- Insertion des enseignements
