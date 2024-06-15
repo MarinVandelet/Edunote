@@ -44,3 +44,4 @@ Edunote a été développé dans le cadre d'une SAE (Situation d'Apprentissage e
    - [🧰 BASE DE DONNEES](./database.txt)
    - [🔗 FIGMA](https://www.figma.com/design/22SZXsg8syOBf8QS6dLdI0/Untitled?node-id=10-88)
    - [📊 TRELLO](link)
+   - [⚡ DIAPO SOUTENANCE](https://www.canva.com/design/DAGHqwgFdqU/rkHCy7L6wgbbSJHJyq2AdQ/view?utm_content=DAGHqwgFdqU&utm_campaign=designshare&utm_medium=link&utm_source=editor)
