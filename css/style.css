@@ -1,7 +1,6 @@
 html,
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -513,6 +512,11 @@ body.dark-mode .options-btn button {
 
 #contenu_accueil{
     margin: 6em auto;
+}
+
+body.dark-mode #contenu_accueil{
+    margin: 6em auto;
+    background-color: #121212;
 }
 
 .element_accueil{

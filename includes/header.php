@@ -30,6 +30,7 @@
                             break;
                         case 'prof':
                            echo "<li><a href=\"gestion_notes.php\">Gestion Notes</a></li>";
+                           echo "<li><a href=\"matiere.php\">Mes matières</a></li>";
                             break;
                         default :
                             break;
