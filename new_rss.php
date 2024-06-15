@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $pdo->commit();
 
-        header("Location: gestion_enseigement.php");
+        header("Location: gestion_enseignement.php");
         exit();
     } catch (PDOException $e) {
         $pdo->rollBack();
@@ -71,7 +71,7 @@ include 'header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDN - Créer Enseignement</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h2>Ajouter un Enseignement</h2>

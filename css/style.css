@@ -102,9 +102,10 @@ body.dark-mode .connexion:hover {
     height: 30px;
 }
 
-.icon-sun{
+.icon-sun {
     display: none;
 }
+
 .theme-toggle.dark-mode .toggle-track {
     background-color: #333;
 }
@@ -139,14 +140,17 @@ footer {
     padding: 0 20%;
 }
 
-footer table tr th{
+footer table tr th {
     padding-top: 1em;
     padding-bottom: 0;
     font-size: 180%;
 }
-
-footer ul{
+           
+footer ul {
     padding: 0;
+}
+body.dark-mode footer td,footer th,footer table {
+border:#1e1e1e
 }
 
 body.dark-mode footer {
@@ -157,6 +161,10 @@ body.dark-mode footer {
 .social-icons li {
     display: inline-block;
     margin-right: 10px;
+}
+
+body.dark-mode footer th{
+    background-color: #1e1e1e;
 }
 
 .icon {
@@ -178,7 +186,8 @@ body.dark-mode footer {
     text-align: center;
 }
 
-.container-connexion, .usertype {
+.container-connexion,
+.usertype {
     width: 50%;
     margin: 6px auto;
     background-color: #fff;
@@ -352,11 +361,11 @@ body.dark-mode .logo-univ {
 }
 
 .button-creer {
-    background-color: #4CAF50;
+    background-color: #0bc543;
 }
 
 .button-lister {
-    background-color: #008CBA;
+    background-color: #1026a1;
 }
 
 .menu_banner {
@@ -365,8 +374,8 @@ body.dark-mode .logo-univ {
 }
 
 .submit-boutton {
-        width: 100%;
-        padding: 10px;   
+    width: 100%;
+    padding: 10px;
 }
 
 
@@ -374,8 +383,10 @@ body.dark-mode .logo-univ {
 
 
 .usertype {
-    width: 100%; /* Largeur du select pour remplir la cellule */
-    padding: 7.5px; /* Ajout de padding pour maintenir la taille de l'élément */
+    width: 100%;
+    /* Largeur du select pour remplir la cellule */
+    padding: 7.5px;
+    /* Ajout de padding pour maintenir la taille de l'élément */
 }
 
 /* Styles pour les boutons de filtre */
@@ -397,38 +408,14 @@ body.dark-mode .logo-univ {
     background-color: #080c52;
 }
 
-/* Styles pour la barre de recherche */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#searchInput {
-    flex: 1;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.search-button {
-    background-color: #0F1383;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    background-color: #080c52;
-}
-
 /* Styles pour le tableau des utilisateurs */
 #userTable {
     width: 100%;
     border-collapse: collapse;
 }
 
-#userTable th, #userTable td {
+#userTable th,
+#userTable td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -460,6 +447,7 @@ th {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    
 }
 
 .form-container label {
@@ -473,6 +461,12 @@ th {
 .form-container .search-container {
     display: flex;
     align-items: center;
+}
+
+.form-container .search-container2 {
+    display: flex;
+    align-items: center;
+    width: 100000px;
 }
 
 .form-container input[type="text"] {
@@ -490,13 +484,16 @@ th {
     padding: 5px 10px;
     font-size: 148x;
     cursor: pointer;
-    background-color: #0F1383 ;
-    color:white
-}
-body.dark-mode .options-btn button {
-background-color: #152c9c;
+    background-color: #0F1383;
+    color: white
 }
 
-.container-contact{
-    margin:auto
+body.dark-mode .options-btn button {
+    background-color: #152c9c;
 }
+
+.container-contact {
+    margin: auto;
+    padding-inline: 550px;
+}
+
