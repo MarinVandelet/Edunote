@@ -6,15 +6,17 @@ include 'header.php';
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-// Requête SQL pour récupérer les enseignements et les professeurs associés
-$sql = "SELECT ENSEIGNEMENT.ID_Ens AS ID, Libelle_Ens AS nom_ens, Semestre, Coefficient, UE.Competence AS ue_competence,
+// Requête SQL pour récupérer les enseignements, les professeurs associés et le type de ressource
+$sql = "SELECT ENSEIGNEMENT.ID_Ens AS ID, nom_Ens, Semestre, Coefficient, UE.Competence AS ue_competence,
+               TYPE_ENSEIGNEMENT.type AS type_ressource,
                GROUP_CONCAT(CONCAT(ENSEIGNANT.nom, ' ', ENSEIGNANT.prenom) SEPARATOR ', ') AS professeurs
         FROM ENSEIGNEMENT
         JOIN UE ON ENSEIGNEMENT.ID_UE = UE.ID_UE
         LEFT JOIN ENSEIGNE ON ENSEIGNEMENT.ID_Ens = ENSEIGNE.ID_Ens
         LEFT JOIN ENSEIGNANT ON ENSEIGNE.ID_prof = ENSEIGNANT.ID_prof
-        WHERE Libelle_Ens LIKE :search OR Semestre LIKE :search OR Coefficient LIKE :search OR UE.Competence LIKE :search
-        GROUP BY ENSEIGNEMENT.ID_Ens, Libelle_Ens, Semestre, Coefficient, UE.Competence";
+        JOIN TYPE_ENSEIGNEMENT ON ENSEIGNEMENT.type = TYPE_ENSEIGNEMENT.type
+        WHERE nom_Ens LIKE :search OR Semestre LIKE :search OR Coefficient LIKE :search OR UE.Competence LIKE :search
+        GROUP BY ENSEIGNEMENT.ID_Ens, nom_Ens, Semestre, Coefficient, UE.Competence, TYPE_ENSEIGNEMENT.type";
 
 ?>
 
@@ -44,6 +46,7 @@ $sql = "SELECT ENSEIGNEMENT.ID_Ens AS ID, Libelle_Ens AS nom_ens, Semestre, Coef
             <th>Semestre</th>
             <th>Coefficient</th>
             <th>Unité d'enseignement</th>
+            <th>Type de ressource</th>
             <th>Professeurs</th>
             <th>Options avancées</th>
         </tr>
@@ -53,10 +56,11 @@ $sql = "SELECT ENSEIGNEMENT.ID_Ens AS ID, Libelle_Ens AS nom_ens, Semestre, Coef
             $stmt->execute(['search' => '%' . $search . '%']);
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>
-                        <td>" . htmlspecialchars($row['nom_ens']) . "</td>
+                        <td>" . htmlspecialchars($row['nom_Ens']) . "</td>
                         <td>" . htmlspecialchars($row['Semestre']) . "</td>
                         <td>" . htmlspecialchars($row['Coefficient']) . "</td>
                         <td>" . htmlspecialchars($row['ue_competence']) . "</td>
+                        <td>" . htmlspecialchars($row['type_ressource']) . "</td>
                         <td>" . htmlspecialchars($row['professeurs']) . "</td>
                         <td class='options-btn'>
                             <button onclick=\"editEnseignement('" . htmlspecialchars($row['ID']) . "')\">🖊 Éditer</button>
@@ -65,16 +69,11 @@ $sql = "SELECT ENSEIGNEMENT.ID_Ens AS ID, Libelle_Ens AS nom_ens, Semestre, Coef
                     </tr>";
             }
         } catch (PDOException $e) {
-            echo "<tr><td colspan='6' style='color:red;'>Erreur: " . $e->getMessage() . "</td></tr>";
+            echo "<tr><td colspan='7' style='color:red;'>Erreur: " . $e->getMessage() . "</td></tr>";
         }
         ?>
     </table>
-    <?php
-
-    include "footer.php";
-
-    ?>
-
+    <?php include "footer.php"; ?>
     <script>
         function editEnseignement(id) {
             var editUrl = 'edit_enseignement.php?id=' + id;
