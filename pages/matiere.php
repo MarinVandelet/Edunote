@@ -2,6 +2,7 @@
 session_start();
 include '../functions/config.php';
 include '../includes/header.php';
+
 $pdo = connexionDB();
 
 // Vérifiez si l'ID de l'enseignant est défini dans la session

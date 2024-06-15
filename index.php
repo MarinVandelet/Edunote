@@ -31,10 +31,10 @@ session_start();
                             echo "<li><a href=\"pages/gestion_utilisateurs.php\">Gestion Utilisateurs</a></li>";
                             break;
                         case 'eleve':
-                            echo "<li><a href=\"#\">Notes</a></li>";
+                            echo "<li><a href=\"pages/matiere_eleve.php\">Notes</a></li>";
                             break;
                         case 'prof':
-                           echo "<li><a href=\"pages/matiere.php\">Gestion Notes</a></li>";
+                           echo "<li><a href=\"pages/matiere.php\">Mes matières</a></li>";
                             break;
                         default :
                             break;

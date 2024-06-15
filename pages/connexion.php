@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $etud = $stmt->fetch();
 
         if ($etud && password_verify($password, $etud['password'])) {
-            $_SESSION['etudiant'] = $etud['ID_eleve'];
+            $_SESSION['eleve'] = $etud['ID_eleve'];
             $_SESSION['etat'] = $userType;
             header('Location: ../index.php');
             exit;
