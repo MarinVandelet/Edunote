@@ -135,8 +135,18 @@ body.dark-mode .connexion:hover {
 /* Footer */
 footer {
     background-color: #0F1383;
-    text-align: center;
     color: white;
+    padding: 0 20%;
+}
+
+footer table tr th{
+    padding-top: 1em;
+    padding-bottom: 0;
+    font-size: 180%;
+}
+
+footer ul{
+    padding: 0;
 }
 
 body.dark-mode footer {
@@ -155,6 +165,7 @@ body.dark-mode footer {
     height: 40px;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 20%;
 }
 
 .container {
