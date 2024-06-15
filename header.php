@@ -29,7 +29,7 @@
                             echo "<li><a href=\"#\">Notes</a></li>";
                             break;
                         case 'prof':
-                           echo "<li><a href=\"#\">Gestion Notes</a></li>";
+                           echo "<li><a href=\"gestion_notes.php\">Gestion Notes</a></li>";
                             break;
                         default :
                             break;
